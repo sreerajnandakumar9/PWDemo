@@ -23,4 +23,5 @@ test('Actions', async ({page}) => {
         await page.getByLabel(days[index]).check();
         await expect(page.getByLabel(days[index])).toBeChecked();
     }
+   await page.pause();
 })
