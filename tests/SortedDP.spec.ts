@@ -29,7 +29,12 @@ const dps:Locator = page.locator('#colors>option');
  console.log("sorted without duplicates: ");
 
    const uniqueSorted = Array.from(new Set(sorted));
+      console.log(uniqueSorted);
+
     //uniqueSorted.forEach((value) => console.log(value));    
-   console.log(uniqueSorted);
+    //duplicate values
+     console.log("duplicate values: ");
+     const duplicates = sorted.filter((value, index) => sorted.indexOf(value) !== index);
+     console.log(duplicates);
    //expect(Nonsorted).not.toEqual(sorted);
 })
