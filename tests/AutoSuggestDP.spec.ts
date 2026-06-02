@@ -1,5 +1,4 @@
 import {test,expect,Locator} from '@playwright/test';
-import { it } from 'node:test';
 test('Auto Suggest Dropdowns', async ({page}) => {
     await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
 
@@ -25,6 +24,6 @@ test('Auto Suggest Dropdowns', async ({page}) => {
        }
    }
  
-   await page.pause();
+  // await page.pause();
 })
    
