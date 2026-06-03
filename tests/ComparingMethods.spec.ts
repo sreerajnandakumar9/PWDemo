@@ -37,7 +37,7 @@ test("Comparing Method-AllTextContent", async ({page}) => {
     
 })
 //all() method is used to get the all the elements of the locator and then we can perform the action on it
-test.only("Comparing Method-All", async ({page}) => {
+test("Comparing Method-All", async ({page}) => {
     await page.goto('https://demowebshop.tricentis.com/');  
     const products:Locator = await page.locator('.product-title')
     const allProducts = await products.all();
@@ -45,5 +45,16 @@ test.only("Comparing Method-All", async ({page}) => {
     for(let product of allProducts){
         const productName = await product.innerText();
         console.log(productName);
+    }
+})
+    //for in loop is used to iterate the array of elements and then we can perform the action on it
+
+    test.only("Comparing Method-All-ForInLoop", async ({page}) => {
+        await page.goto('https://demowebshop.tricentis.com/');  
+        const products:Locator = await page.locator('.product-title')
+        const allProducts = await products.all();
+    for(let i in allProducts){
+        const productName = await allProducts[i].innerText();
+        console.log(productName.trim());
     }
 })
