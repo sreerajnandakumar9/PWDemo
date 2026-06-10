@@ -54,13 +54,13 @@ test.only("Search specific data in the table", async({page})=>{
 
     await page.goto("https://datatables.net/examples/basic_init/zero_configuration.html")
 
-    const searchBox = page.locator("#dt-search-0")
-    await page.waitForTimeout(5000)
-     await searchBox.fill("Martena Mccray")
+    const searchBox =await page.locator("#dt-search-0")
+    await page.waitForTimeout(2000)
+    await  searchBox.fill("Martena Mccray")
 
   const rows= await page.locator("#example tbody tr").all()
 
-        if(rows.length>1){
+        if(rows.length>=1){
             
             let MatchFound = false
 
@@ -69,11 +69,13 @@ test.only("Search specific data in the table", async({page})=>{
           
            const rowtext = await row.innerText();
            if( rowtext.includes('Martena Mccray')){
+               console.log(rowtext)
             console.log("Match Found")
             MatchFound=true;
             break;
            }
         }
+        expect(MatchFound).toBeTruthy()
      
             
         }
